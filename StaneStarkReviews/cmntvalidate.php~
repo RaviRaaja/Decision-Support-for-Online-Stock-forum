@@ -1,0 +1,23 @@
+
+<?php
+//session_start();// Starting Session
+$hostname="localhost";
+$username="root";
+$password="admin";
+$dbhandle=mysql_connect($hostname,$username,$password);
+$selectdb=mysql_select_db("rr",$dbhandle);
+$name=$_POST['name'];
+$designation=$_POST['email'];
+$join_date=$_POST['web'];
+$experience=$_POST['message'];
+$education_qualifi=$_POST['question'];
+$result=mysql_query("INSERT INTO Employee_Information(NAME,DESIGNATION,JOIN_DATE,EXPERIENCE,EDUCATION_QUALIFI,MOBILE_NO,PROJECT_WORKING_ON,EMPLOYEE_ID,	BLOOD_GROUP,EMAIL,PASSWORD) VALUES('$name','$designation','$join_date','$experience','$education_qualifi','$mobile_no','$project_working_on','$employee_id','$blood_grp','$email','$passwd')");
+session_start();// Starting Session
+$_SESSION['login_user']=$email;
+header('Location: welcome.php'); // Redirecting To Home Page
+?>
+
+
+<!--?php
+session_destroy();
+?-->
